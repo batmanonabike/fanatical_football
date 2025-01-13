@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bugcix34kjk5f"]
+
+[ext_resource type="Texture2D" uid="uid://ds06cc0xpq4ov" path="res://assets/Lines_On_A_Football_Pitch.jpg" id="1_xtbj0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(1.441, 1.441)
+texture = ExtResource("1_xtbj0")
