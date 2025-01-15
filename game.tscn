@@ -7,7 +7,9 @@
 [node name="Game" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_t2f4w")]
-visible = false
+position = Vector2(929, -72)
+rotation = 1.5708
+scale = Vector2(0.677, 0.677)
 
 [node name="Controls" parent="." instance=ExtResource("2_ator1")]
 
