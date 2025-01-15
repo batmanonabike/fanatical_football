@@ -7,35 +7,37 @@
 layout_mode = 3
 anchors_preset = 0
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="up" type="TouchScreenButton" parent="."]
 position = Vector2(148, 383)
-scale = Vector2(0.65625, 0.59375)
+scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
 action = "forward"
 script = ExtResource("1_big1t")
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+[node name="down" type="TouchScreenButton" parent="."]
 position = Vector2(151, 627)
-scale = Vector2(0.65625, 0.59375)
+scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
 action = "backward"
 script = ExtResource("1_big1t")
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+[node name="right" type="TouchScreenButton" parent="."]
 position = Vector2(277, 502)
-scale = Vector2(0.65625, 0.59375)
+scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
 action = "right"
 script = ExtResource("1_big1t")
 
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+[node name="left" type="TouchScreenButton" parent="."]
 position = Vector2(30, 511)
-scale = Vector2(0.65625, 0.59375)
+scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
 action = "left"
 script = ExtResource("1_big1t")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="shoot" type="TouchScreenButton" parent="."]
+position = Vector2(1100, 506)
+scale = Vector2(0.656, 0.656)
+texture_normal = ExtResource("1_r7s3j")
+action = "shoot"
+script = ExtResource("1_big1t")
