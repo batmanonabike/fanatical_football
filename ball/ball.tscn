@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nqkyn3as8wpk"]
+
+[ext_resource type="Script" path="res://ball/ball.gd" id="1_oxpuq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_si0c1"]
+radius = 25.0
+
+[node name="Ball" type="Area2D"]
+script = ExtResource("1_oxpuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_si0c1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(25, -1, 24, -7, 22, -13, 19, -17, 12, -22, 7, -24, 0, -25, -7, -24, -15, -21, -21, -14, -24, -7, -25, 0, -24, 7, -22, 12, -18, 18, -13, 22, -7, 24, 1, 25, 7, 24, 12, 22, 18, 18, 22, 13, 24, 7)

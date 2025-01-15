@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED: float = 300.0
 
+func _ready():
+	add_collision_exception_with(Global.ball)
 
 func _physics_process(delta):
 
@@ -20,4 +22,5 @@ func _physics_process(delta):
 		#velocity.y = move_toward(velocity.y, 0, SPEED)
 	velocity = velocity.normalized() * SPEED
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	
 	print(collision)
