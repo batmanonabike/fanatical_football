@@ -44,6 +44,11 @@ right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Physics"
+2d_physics/layer_5="Collisions"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
