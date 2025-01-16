@@ -1,20 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpgpn61kkwak5"]
+[gd_scene load_steps=6 format=3 uid="uid://dpgpn61kkwak5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_1jdsb"]
 [ext_resource type="Texture2D" uid="uid://c3rxj6tujyk3i" path="res://icon.svg" id="2_breoj"]
+[ext_resource type="PackedScene" uid="uid://g3lbno66qan0" path="res://controls/controls.tscn" id="3_jx68v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hmd5"]
-size = Vector2(51, 48)
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ek7q"]
+size = Vector2(100, 100)
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 17
-collision_mask = 17
+z_index = 2
+collision_layer = 19
+collision_mask = 19
 script = ExtResource("1_1jdsb")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.383, 0.383)
-texture = ExtResource("2_breoj")
+SPEED = 300.0
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1)
 shape = SubResource("RectangleShape2D_0hmd5")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_breoj")
+
+[node name="DribbleLocation" type="Marker2D" parent="Node2D"]
+position = Vector2(0, 20)
+gizmo_extents = 21.8
+
+[node name="DoubleTap" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoubleTap"]
+shape = SubResource("RectangleShape2D_0ek7q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Controls" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_jx68v")]
+unique_name_in_owner = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 16.55
+vertices = PackedVector2Array(-13, -14, -13, 12, 12, 12, 12, -14)
+affect_navigation_mesh = true
