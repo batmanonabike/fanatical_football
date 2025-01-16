@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2h30qrbkdpsf"]
+[gd_scene load_steps=6 format=3 uid="uid://d2h30qrbkdpsf"]
 
 [ext_resource type="PackedScene" uid="uid://bugcix34kjk5f" path="res://map/map.tscn" id="1_t2f4w"]
 [ext_resource type="Script" path="res://game.gd" id="1_yyo17"]
 [ext_resource type="PackedScene" uid="uid://dpgpn61kkwak5" path="res://player/player.tscn" id="3_60qic"]
 [ext_resource type="PackedScene" uid="uid://nqkyn3as8wpk" path="res://ball/ball.tscn" id="4_jiwkx"]
+[ext_resource type="Script" path="res://player/npc.gd" id="5_3kh7r"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yyo17")
@@ -16,5 +17,16 @@ scale = Vector2(2, 2)
 [node name="Ball" parent="." instance=ExtResource("4_jiwkx")]
 position = Vector2(639, 361)
 
+[node name="NPC" parent="." instance=ExtResource("3_60qic")]
+script = ExtResource("5_3kh7r")
+role = 1
+side = 0
+NPC = true
+
 [node name="Player" parent="." instance=ExtResource("3_60qic")]
-position = Vector2(727, 476)
+position = Vector2(512, 693)
+SPEED = 300.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(720, 1191)
+gizmo_extents = 128.1

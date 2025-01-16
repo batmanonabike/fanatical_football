@@ -6,8 +6,9 @@ extends CharacterBody2D
 
 var direction: Vector2
 @onready var dribble_and_sprite = $Node2D
+
+@export var NPC: bool = false
 func _ready():
-	
 	add_collision_exception_with(Global.ball)
 
 func _physics_process(delta):
@@ -38,7 +39,7 @@ func _physics_process(delta):
 	else:
 		#Decelerate
 		velocity = velocity.move_toward(Vector2(0,0), DECELERATION * delta)
-		
+	print(velocity)
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
 	

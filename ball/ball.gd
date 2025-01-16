@@ -77,12 +77,13 @@ func _physics_process(delta):
 			double_tapping = true
 			print("tap")
 	bodies_colliding = $Area2D.get_overlapping_bodies()	
-	if bodies_colliding.size() >= 1 and not shooting and is_equal_approx(y,1) and not has_shot:		
+	if bodies_colliding.size() >= 1 and not shooting and is_equal_approx(y,1):
 		
 		dribbling = true
 		if bodies_colliding[0]:
 			# Update player dribbling if the player is an instance of the Player scene
-			player_dribbling = bodies_colliding[0] if is_instance_of(bodies_colliding[0], CharacterBody2D) else null
+			if not has_shot or has_shot and bodies_colliding[0] != player_dribbling:
+				player_dribbling = bodies_colliding[0] if is_instance_of(bodies_colliding[0], CharacterBody2D) else null
 	if has_shot:
 		time_till_unshoot -= delta
 		if time_till_unshoot <= 0:
