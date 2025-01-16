@@ -45,19 +45,19 @@ func _physics_process(delta):
 		
 		global_position = player_dribbling.get_node("Node2D/DribbleLocation").global_position
 		# Shoot on release
-		if Input.is_action_just_released("shoot"):
+		if Input.is_action_just_released("shoot") and player_dribbling == Global.player:
 			dribbling = false
 			shooting = true
 			has_shot = true
 			high_shot = false
 			
-		elif Input.is_action_just_released("high_shot"):
+		elif Input.is_action_just_released("high_shot") and player_dribbling == Global.player:
 			dribbling = false
 			shooting = true
 			has_shot = true
 			high_shot = true
 			
-		elif Input.is_action_just_pressed("pass"):
+		elif Input.is_action_just_pressed("pass") and player_dribbling == Global.player:
 			pass # haha.
 	areas_colliding = $Area2D.get_overlapping_areas()
 	if areas_colliding and player_dribbling and not dribbling:
@@ -75,6 +75,7 @@ func _physics_process(delta):
 		if bodies_colliding[0]:
 			# Update player dribbling if the player is an instance of the Player scene
 			if not has_shot or has_shot and bodies_colliding[0] != player_dribbling:
+				print("lol")
 				player_dribbling = bodies_colliding[0] if is_instance_of(bodies_colliding[0], CharacterBody2D) else null
 	if has_shot:
 		time_till_unshoot -= delta

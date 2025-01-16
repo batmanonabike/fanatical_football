@@ -9,6 +9,7 @@ var direction: Vector2
 
 @export var NPC: bool = false
 func _ready():
+	Global.player = self
 	add_collision_exception_with(Global.ball)
 
 func _physics_process(delta):
