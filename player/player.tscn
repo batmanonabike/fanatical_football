@@ -15,7 +15,7 @@ z_index = 2
 collision_layer = 19
 collision_mask = 19
 script = ExtResource("1_1jdsb")
-SPEED = 1000.0
+SPEED = 300.0
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0hmd5")

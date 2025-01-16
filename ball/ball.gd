@@ -29,15 +29,23 @@ func _ready():
 func _integrate_forces(state):
 	if shooting:	
 		state.linear_velocity = Vector2.ZERO	
-		state.apply_force(Vector2(200 + Global.shoot_strength * 1000, 0).rotated(player_dribbling.get_node("Node2D").rotation + deg_to_rad(90)))
-		Global.shoot_strength = 0
-		if high_shot:
-			_ascend_descend(1)
-	if double_tapping:
+		
 	
-		state.apply_force(Vector2(1000, 0).rotated(player_dribbling.get_node("Node2D").rotation + deg_to_rad(90)))
+		if high_shot:
+			state.apply_force(Vector2(200 + Global.shoot_strength * 1200, 0).rotated(player_dribbling.get_node("Node2D").rotation + deg_to_rad(90)))
+			_ascend_descend(1)
+		else:
+			state.apply_force(Vector2(200 + Global.shoot_strength * 1200, 0).rotated(player_dribbling.get_node("Node2D").rotation + deg_to_rad(90)))
+		Global.shoot_strength = 0
+	if double_tapping and has_shot and is_equal_approx(y, 1):	
+		state.apply_force(Vector2(2000, 0).rotated(player_dribbling.get_node("Node2D").rotation + deg_to_rad(90)))
 	shooting = false
 	double_tapping = false
+	# Increase friction if on ground
+	if is_equal_approx(y, 1):
+		state.linear_velocity = (state.linear_velocity.length() * state.linear_velocity.normalized() * 0.994)
+	else:
+		state.linear_velocity = (state.linear_velocity.length() * state.linear_velocity.normalized() * 0.997)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#simulate_y_level(1)
