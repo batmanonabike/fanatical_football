@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://g3lbno66qan0"]
+[gd_scene load_steps=4 format=3 uid="uid://g3lbno66qan0"]
 
 [ext_resource type="Script" path="res://controls/touch_screen_button.gd" id="1_big1t"]
 [ext_resource type="Texture2D" uid="uid://c3rxj6tujyk3i" path="res://icon.svg" id="1_r7s3j"]
+[ext_resource type="Script" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="3_bydkn"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="up" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(148, 383)
 scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
@@ -15,6 +17,7 @@ action = "forward"
 script = ExtResource("1_big1t")
 
 [node name="down" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(151, 627)
 scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
@@ -22,6 +25,7 @@ action = "backward"
 script = ExtResource("1_big1t")
 
 [node name="right" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(277, 502)
 scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
@@ -29,6 +33,7 @@ action = "right"
 script = ExtResource("1_big1t")
 
 [node name="left" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(30, 511)
 scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
@@ -41,3 +46,11 @@ scale = Vector2(0.656, 0.656)
 texture_normal = ExtResource("1_r7s3j")
 action = "shoot"
 script = ExtResource("1_big1t")
+
+[node name="Virtual Joystick" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 76.0
+offset_top = 415.0
+offset_right = 388.0
+offset_bottom = 765.0
+script = ExtResource("3_bydkn")

@@ -29,6 +29,14 @@ func _physics_process(delta):
 		else:
 			dribble_and_sprite.rotation = deg_to_rad(90 + 35) if velocity.x < 0 else deg_to_rad(245)
 			
+	# Joystick check for mobile players
+	if Global.joystick and Global.joystick.is_pressed:
+		dribble_and_sprite.rotation = Global.joystick.output.angle() - deg_to_rad(90)
+		velocity = Global.joystick.output * SPEED
+	else:
+		#Decelerate
+		velocity = velocity.move_toward(Vector2(0,0), DECELERATION)
+		
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
 	
