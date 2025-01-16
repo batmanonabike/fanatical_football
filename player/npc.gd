@@ -1,5 +1,7 @@
 extends "res://player/player.gd"
+@export_category("Roles")
 @export_enum("Striker", "Midfield", "Defense", "Goalie") var role: int
+@export_enum("Left", "Centre", "Right") var side: int
 func _ready():
 	$Camera2D.enabled = false
 	$SubViewportContainer.visible = false

@@ -20,6 +20,7 @@ position = Vector2(639, 361)
 [node name="NPC" parent="." instance=ExtResource("3_60qic")]
 script = ExtResource("5_3kh7r")
 role = 1
+side = 0
 NPC = true
 
 [node name="Player" parent="." instance=ExtResource("3_60qic")]
