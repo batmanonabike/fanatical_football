@@ -54,3 +54,6 @@ offset_top = 415.0
 offset_right = 388.0
 offset_bottom = 765.0
 script = ExtResource("3_bydkn")
+
+[connection signal="pressed" from="shoot" to="up" method="_on_shoot_pressed"]
+[connection signal="released" from="shoot" to="up" method="_on_shoot_released"]

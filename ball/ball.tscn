@@ -1,16 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://nqkyn3as8wpk"]
+[gd_scene load_steps=4 format=3 uid="uid://nqkyn3as8wpk"]
 
 [ext_resource type="Script" path="res://ball/ball.gd" id="1_oxpuq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_si0c1"]
-radius = 12.5
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_thww6"]
+bounce = 0.3
 
-[node name="Ball" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_si0c1"]
+radius = 6.25
+
+[node name="Ball" type="RigidBody2D"]
+collision_mask = 33
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_thww6")
+gravity_scale = 0.0
+can_sleep = false
 script = ExtResource("1_oxpuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_si0c1")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
+antialiased = true
 polygon = PackedVector2Array(25, -1, 24, -7, 22, -13, 19, -17, 12, -22, 7, -24, 0, -25, -7, -24, -15, -21, -21, -14, -24, -7, -25, 0, -24, 7, -22, 12, -18, 18, -13, 22, -7, 24, 1, 25, 7, 24, 12, 22, 18, 18, 22, 13, 24, 7)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_si0c1")

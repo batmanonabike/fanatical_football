@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+@export_category("Stats")
+@export var SPEED: float = 200.0
+@export var DECELERATION: float = 500.0
 
-const SPEED: float = 300.0
-const DECELERATION: float = 1000.0
 var direction: Vector2
 @onready var dribble_and_sprite = $Node2D
 func _ready():
+	
 	add_collision_exception_with(Global.ball)
 
 func _physics_process(delta):
@@ -35,7 +37,7 @@ func _physics_process(delta):
 		velocity = Global.joystick.output * SPEED
 	else:
 		#Decelerate
-		velocity = velocity.move_toward(Vector2(0,0), DECELERATION)
+		velocity = velocity.move_toward(Vector2(0,0), DECELERATION * delta)
 		
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
