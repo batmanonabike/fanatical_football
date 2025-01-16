@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpgpn61kkwak5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpgpn61kkwak5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_1jdsb"]
 [ext_resource type="Texture2D" uid="uid://c3rxj6tujyk3i" path="res://icon.svg" id="2_breoj"]
@@ -9,6 +9,8 @@ size = Vector2(18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ek7q"]
 size = Vector2(100, 100)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kgjhs"]
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
@@ -58,3 +60,8 @@ unique_name_in_owner = true
 radius = 16.55
 vertices = PackedVector2Array(-13, -14, -13, 12, 12, 12, 12, -14)
 affect_navigation_mesh = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.016
+delta_interval = 0.016
+replication_config = SubResource("SceneReplicationConfig_kgjhs")

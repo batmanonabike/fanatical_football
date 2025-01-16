@@ -12,8 +12,8 @@ var shooting: bool = false
 var high_shot: bool = false
 var double_tapping: bool = false
 var has_shot: bool = false
-const TIME_TILL_UNSHOOT: float = 1
-var time_till_unshoot: float = 1
+const TIME_TILL_UNSHOOT: float = 0.5
+var time_till_unshoot: float = 0.5
 
 @export_category("Visuals")
 @export var y_increase_per_iteration: float = 0.05
