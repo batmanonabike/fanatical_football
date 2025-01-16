@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.game = self
-	Global.joystick = $"Controls/Virtual Joystick".get_children()[0]
+	
 	pass # Replace with function body.
 
 

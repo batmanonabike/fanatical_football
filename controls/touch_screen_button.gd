@@ -22,5 +22,6 @@ func _on_shoot_pressed():
 
 
 func _on_shoot_released():
+	print("kek")
 	shooting = false
 	

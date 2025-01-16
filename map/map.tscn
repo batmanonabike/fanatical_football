@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bugcix34kjk5f"]
+[gd_scene load_steps=5 format=3 uid="uid://bugcix34kjk5f"]
 
 [ext_resource type="Texture2D" uid="uid://ds06cc0xpq4ov" path="res://assets/Lines_On_A_Football_Pitch.jpg" id="1_xtbj0"]
 
@@ -8,7 +8,13 @@ size = Vector2(1189, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ukl"]
 size = Vector2(129, 710)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5xwm5"]
+vertices = PackedVector2Array(1135.51, 12.8984, 1125.8, 707.344, 138.742, 707.344, 144.57, 3.75)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1145.67, 3, 134.667, -6.33333, 128.667, 717.333, 1135.67, 717.333)])
+
 [node name="Node2D" type="Node2D"]
+scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -40,3 +46,6 @@ shape = SubResource("RectangleShape2D_ojnxh")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/Node2D/StaticBody2D2"]
 position = Vector2(67.5, 362)
 shape = SubResource("RectangleShape2D_l0ukl")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_5xwm5")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2h30qrbkdpsf"]
+[gd_scene load_steps=5 format=3 uid="uid://d2h30qrbkdpsf"]
 
 [ext_resource type="PackedScene" uid="uid://bugcix34kjk5f" path="res://map/map.tscn" id="1_t2f4w"]
 [ext_resource type="Script" path="res://game.gd" id="1_yyo17"]
-[ext_resource type="PackedScene" uid="uid://g3lbno66qan0" path="res://controls/controls.tscn" id="2_ator1"]
 [ext_resource type="PackedScene" uid="uid://dpgpn61kkwak5" path="res://player/player.tscn" id="3_60qic"]
 [ext_resource type="PackedScene" uid="uid://nqkyn3as8wpk" path="res://ball/ball.tscn" id="4_jiwkx"]
 
@@ -10,11 +9,9 @@
 script = ExtResource("1_yyo17")
 
 [node name="Map" parent="." instance=ExtResource("1_t2f4w")]
-position = Vector2(900, -89)
+position = Vector2(1466, -807)
 rotation = 1.5708
-scale = Vector2(0.7, 0.7)
-
-[node name="Controls" parent="." instance=ExtResource("2_ator1")]
+scale = Vector2(2, 2)
 
 [node name="Ball" parent="." instance=ExtResource("4_jiwkx")]
 position = Vector2(639, 361)

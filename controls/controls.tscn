@@ -47,6 +47,13 @@ texture_normal = ExtResource("1_r7s3j")
 action = "shoot"
 script = ExtResource("1_big1t")
 
+[node name="high" type="TouchScreenButton" parent="."]
+position = Vector2(1104, 316)
+scale = Vector2(0.656, 0.656)
+texture_normal = ExtResource("1_r7s3j")
+action = "high_shot"
+script = ExtResource("1_big1t")
+
 [node name="Virtual Joystick" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 76.0
@@ -57,3 +64,5 @@ script = ExtResource("3_bydkn")
 
 [connection signal="pressed" from="shoot" to="up" method="_on_shoot_pressed"]
 [connection signal="released" from="shoot" to="up" method="_on_shoot_released"]
+[connection signal="pressed" from="high" to="up" method="_on_shoot_pressed"]
+[connection signal="released" from="high" to="up" method="_on_shoot_released"]
