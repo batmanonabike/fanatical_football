@@ -4,14 +4,27 @@ extends CharacterBody2D
 @export var SPEED: float = 200.0
 @export var DECELERATION: float = 500.0
 
-var direction: Vector2
-@onready var dribble_and_sprite = $Node2D
+@export_category("Roles")
+@export_enum("Striker", "Midfield", "Defense", "Goalie") var role: int
+@export_enum("Left", "Centre", "Right") var side: int
 
-@export var NPC: bool = false
+@export_category("Misc")
+@export_enum ("Team One", "Team Two") var team: int
+@export_enum("Player Character", "Nonplayer Character") var player_type: int
+
+var direction: Vector2
+var dribble_and_sprite: Node2D
+
 func _ready():
+	# Set to NPC if NPC is on
+	if player_type == 1:
+		self.script = preload("res://player/npc.gd")
+	dribble_and_sprite = $Node2D
 	add_collision_exception_with(Global.ball)
 
 func _physics_process(delta):
+	if player_type == 1:
+		self.script = preload("res://player/npc.gd")
 	direction = Input.get_vector("left", "right", "forward", "backward")
 	if direction.x:
 		velocity.x = direction.x * SPEED
@@ -39,7 +52,6 @@ func _physics_process(delta):
 	else:
 		#Decelerate
 		velocity = velocity.move_toward(Vector2(0,0), DECELERATION * delta)
-	print(velocity)
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
 	

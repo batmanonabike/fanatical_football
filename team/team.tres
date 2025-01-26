@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cdl824oqsiv20"]
+
+[ext_resource type="Script" path="res://team/team_factory.gd" id="1_fgep2"]
+
+[resource]
+script = ExtResource("1_fgep2")
+name = ""
+nickname = ""
+score = 0
+players = []

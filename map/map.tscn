@@ -49,3 +49,5 @@ shape = SubResource("RectangleShape2D_l0ukl")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5xwm5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]

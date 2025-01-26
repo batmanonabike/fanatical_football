@@ -32,8 +32,8 @@ antialiased = true
 polygon = PackedVector2Array(25, -1, 24, -7, 22, -13, 19, -17, 12, -22, 7, -24, 0, -25, -7, -24, -15, -21, -21, -14, -24, -7, -25, 0, -24, 7, -22, 12, -18, 18, -13, 22, -7, 24, 1, 25, 7, 24, 12, 22, 18, 18, 22, 13, 24, 7)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 18
-collision_mask = 18
+collision_layer = 22
+collision_mask = 22
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_si0c1")

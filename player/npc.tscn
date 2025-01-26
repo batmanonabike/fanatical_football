@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpgpn61kkwak5"]
+[gd_scene load_steps=6 format=3 uid="uid://5wrxhym2po1s"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_1jdsb"]
-[ext_resource type="Texture2D" uid="uid://c3rxj6tujyk3i" path="res://icon.svg" id="2_breoj"]
-[ext_resource type="PackedScene" uid="uid://g3lbno66qan0" path="res://controls/controls.tscn" id="3_jx68v"]
+[ext_resource type="Script" path="res://player/npc.gd" id="1_mseqy"]
+[ext_resource type="Texture2D" uid="uid://c3rxj6tujyk3i" path="res://icon.svg" id="2_iuhq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hmd5"]
 size = Vector2(18, 18)
@@ -16,8 +15,9 @@ size = Vector2(100, 100)
 z_index = 2
 collision_layer = 19
 collision_mask = 19
-script = ExtResource("1_1jdsb")
+script = ExtResource("1_mseqy")
 SPEED = 1000.0
+player_type = 1
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0hmd5")
@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_0hmd5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_breoj")
+texture = ExtResource("2_iuhq6")
 
 [node name="DribbleLocation" type="Marker2D" parent="Node2D"]
 position = Vector2(0, 20)
@@ -38,23 +38,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoubleTap"]
 shape = SubResource("RectangleShape2D_0ek7q")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1280, 720)
-render_target_update_mode = 4
-
-[node name="Controls" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_jx68v")]
-unique_name_in_owner = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 16.55

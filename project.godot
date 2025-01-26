@@ -71,7 +71,10 @@ pass={
 
 2d_physics/layer_1="Physics"
 2d_physics/layer_2="Ball Area2D (DO NOT USE IF NOT AREA2D)"
+2d_physics/layer_3="Goals"
 2d_physics/layer_5="Collisions"
+avoidance/layer_1="Team One"
+avoidance/layer_2="Team Two"
 
 [physics]
 
